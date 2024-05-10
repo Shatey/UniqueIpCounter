@@ -30,13 +30,13 @@ public class IpSetTest {
     }
 
     @Test
-    public void testIsExistsIpAddressDoesNotExist() {
+    public void testIpAddressDoesNotExist() {
         long ipAddress = 1921680001L; // 192.168.0.1
         assertFalse(ipSet.isExists(ipAddress));
     }
 
     @Test
-    public void testIsExistsIpAddressExists() {
+    public void testIpAddressExists() {
         long ipAddress = 1921680001L; // 192.168.0.1
         ipSet.add(ipAddress);
         assertTrue(ipSet.isExists(ipAddress));

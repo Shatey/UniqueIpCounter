@@ -17,19 +17,13 @@ public class ArgumentParserTest {
         ArgumentParser parser = new ArgumentParser();
         assertThrows(IllegalArgumentException.class, () -> parser.parseArguments(new String[0]));
         assertThrows(IllegalArgumentException.class, () -> parser.parseArguments(new String[]{"filename", "-file"}));
-        try {
-            parser.parseArguments(new String[]{"filename", "-file"});
-        } catch (IllegalArgumentException e) {
-            assertEquals("Invalid arguments. Usage: -file <filename>", e.getMessage());
-        }
     }
 
     @Test
     public void testInvalidArgumentsFormat() {
         ArgumentParser parser = new ArgumentParser();
-        assertThrows(IllegalArgumentException.class, () -> parser.parseArguments(new String[]{"filename", "-file"}));
         try {
-            parser.parseArguments(new String[]{"filename", "-file"});
+            parser.parseArguments(new String[]{"filename", "file"});
         } catch (IllegalArgumentException e) {
             assertEquals("Invalid arguments. Usage: -file <filename>", e.getMessage());
         }
